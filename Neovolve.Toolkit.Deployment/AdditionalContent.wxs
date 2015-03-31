@@ -1,0 +1,45 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="ChmDocumentation"
+                 Guid="924C6B5F-7BAD-4277-A74E-B2AAD0878E19">
+        <File Id="Neovolve.Toolkit.chm"
+              Source="$(var.SolutionDir)\bin\$(var.Neovolve.Toolkit.Configuration)\$(var.Neovolve.Toolkit.TargetName).chm"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="License"
+                 Guid="1288A449-969A-4B3B-8C5E-6CBFDEC7D9F6">
+        <File Id="License.rtf"
+              Source="$(var.SolutionDir)Solution Items\License.rtf"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="IconsReadMe"
+                 Guid="84234E3C-DB7E-49EE-908C-328B6B9F724E">
+        <File Id="IconsReadMe.txt"
+              Source="$(var.SolutionDir)Solution Items\IconsReadMe.txt"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="AdditionalContent">
+      <ComponentRef Id="ChmDocumentation" />
+      <ComponentRef Id="License" />
+      <ComponentRef Id="IconsReadMe" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

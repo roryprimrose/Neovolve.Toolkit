@@ -1,0 +1,57 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.XmlDocumentation"
+                 Guid="5FB4EF64-8FE3-4E9D-8B94-D52DE20EB8E8">
+        <File Id="Neovolve.Toolkit.xml"
+              Source="$(var.Neovolve.Toolkit.TargetDir)$(var.Neovolve.Toolkit.TargetName).xml"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Server.XmlDocumentation"
+                 Guid="8A8C1406-E18F-4733-B132-040D0D29FFEE">
+        <File Id="Neovolve.Toolkit.Server.xml"
+              Source="$(var.Neovolve.Toolkit.Server.TargetDir)$(var.Neovolve.Toolkit.Server.TargetName).xml"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Unity.XmlDocumentation"
+                 Guid="2B394182-1CF0-49F6-9AFA-A7E081C852E6">
+        <File Id="Neovolve.Toolkit.Unity.xml"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)$(var.Neovolve.Toolkit.Unity.TargetName).xml"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Workflow.XmlDocumentation"
+                 Guid="FEAB1C04-42E5-440A-A2F7-4DC1DB4CF3CB">
+        <File Id="Neovolve.Toolkit.Workflow.xml"
+              Source="$(var.Neovolve.Toolkit.Workflow.TargetDir)$(var.Neovolve.Toolkit.Workflow.TargetName).xml"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="XmlDocumentation">
+      <ComponentRef Id="Neovolve.Toolkit.XmlDocumentation" />
+      <ComponentRef Id="Neovolve.Toolkit.Server.XmlDocumentation" />
+      <ComponentRef Id="Neovolve.Toolkit.Unity.XmlDocumentation" />
+      <ComponentRef Id="Neovolve.Toolkit.Workflow.XmlDocumentation" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

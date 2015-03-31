@@ -1,0 +1,45 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="PackageBinary"
+                 Guid="E0E68F65-EB64-4ACE-A95F-7A5C1ECB43CE">
+        <File Id="Neovolve.Toolkit.Package.dll"
+              Source="$(var.Neovolve.Toolkit.Package.TargetPath)"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Manifest"
+                 Guid="6AB7674D-C74A-4E5F-9985-D9966533BF59">
+        <File Id="extension.vsixmanifest"
+              Source="$(var.Neovolve.Toolkit.Package.TargetDir)extension.vsixmanifest"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="PackageDef"
+                 Guid="28AA7D47-BDB9-405C-A19D-23308C240507">
+        <File Id="Neovolve.Toolkit.Package.pkgdef"
+              Source="$(var.Neovolve.Toolkit.Package.TargetDir)$(var.Neovolve.Toolkit.Package.ProjectName).pkgdef"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="VsPackage">
+      <ComponentRef Id="PackageBinary" />
+      <ComponentRef Id="Manifest" />
+      <ComponentRef Id="PackageDef" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

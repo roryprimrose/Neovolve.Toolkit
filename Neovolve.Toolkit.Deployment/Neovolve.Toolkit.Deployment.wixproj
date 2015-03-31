@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.5</ProductVersion>
+    <ProjectGuid>{bdfe54c5-ee45-48ab-b99c-0c6189481d99}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>Neovolve.Toolkit</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Deploy|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Binaries.wxs" />
+    <Compile Include="AdditionalContent.wxs" />
+    <Compile Include="CodeContracts.wxs" />
+    <Compile Include="Product.wxs" />
+    <Compile Include="Symbols.wxs" />
+    <Compile Include="Unity.wxs" />
+    <Compile Include="VsAddReference.wxs" />
+    <Compile Include="VsPackage.wxs" />
+    <Compile Include="XmlDocumenation.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bitmaps\DialogBackground.bmp" />
+    <None Include="Bitmaps\TopBanner.bmp" />
+    <Content Include="ControlPanel.wxi" />
+    <Content Include="Definitions.wxi" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Neovolve.Toolkit.Package\Neovolve.Toolkit.Package.csproj">
+      <Name>Neovolve.Toolkit.Package</Name>
+      <Project>{48674699-4914-4659-9fa6-fe3cdabdc64c}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Neovolve.Toolkit.Server\Neovolve.Toolkit.Server.csproj">
+      <Name>Neovolve.Toolkit.Server</Name>
+      <Project>{9faa6eb5-1e52-4ce0-88ad-19481a7a8539}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Symbols</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Neovolve.Toolkit.Unity\Neovolve.Toolkit.Unity.csproj">
+      <Name>Neovolve.Toolkit.Unity</Name>
+      <Project>{e2cc745b-9ba8-4f15-98b1-0d0ccc462152}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Symbols</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Neovolve.Toolkit.Workflow.Design\Neovolve.Toolkit.Workflow.Design.csproj">
+      <Name>Neovolve.Toolkit.Workflow.Design</Name>
+      <Project>{9bbca9f3-b715-451d-9d69-ba3c263cc7bf}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Symbols</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Neovolve.Toolkit.Workflow\Neovolve.Toolkit.Workflow.csproj">
+      <Name>Neovolve.Toolkit.Workflow</Name>
+      <Project>{a92f42c7-8b80-4bfe-b68c-588ea91f5a63}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Symbols</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Neovolve.Toolkit\Neovolve.Toolkit.csproj">
+      <Name>Neovolve.Toolkit</Name>
+      <Project>{553dfbc1-5c1f-41f7-b5a5-e621037d65aa}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Symbols</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bitmaps" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <PropertyGroup>
+    <PostBuildEvent>CD "$(SolutionDir)"
+
+CALL "bte" wov /pattern:"$(ProjectPath)"
+
+rem Create deploy directory under the solution for the complete output
+set DEPLOYDIR="$(SolutionDir)$(OutDir)"
+
+echo Copying output to %25DEPLOYDIR%25
+xcopy "$(TargetDir)%2a.msi" "%25DEPLOYDIR%25" /Y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>rem Clean up prior build that has been renamed in post-build event command line
+del "$(TargetDir)%2a.%2a" /Q
+
+CD "$(SolutionDir)"
+
+CALL "bte" tfsedit /pattern:"$(ProjectDir)Definitions.wxi" /i
+If errorlevel 1 GOTO End
+CALL "bte" swv /pattern:"$(ProjectPath)" /source:"$(SolutionDir)Neovolve.Toolkit\$(OutDir)Neovolve.Toolkit.dll" /M /m /b /r
+If errorlevel 1 GOTO End
+
+If Not %27$(ConfigurationName)%27 == %27Deploy%27 GOTO End
+"%WinDir%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" "Solution Items\Neovolve.Toolkit.shfbproj"  "/property:Configuration=$(ConfigurationName)%3bPlatform=AnyCPU%3bVerbose=True"
+If errorlevel 1 GOTO End
+
+rem Create deploy directory under the solution for the complete output
+set DEPLOYDIR="$(SolutionDir)$(OutDir)"
+
+echo Copying output to %25DEPLOYDIR%25
+xcopy "$(SolutionDir)Solution Items\Help\%2a.chm" "%25DEPLOYDIR%25" /Y
+
+:End</PreBuildEvent>
+  </PropertyGroup>
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

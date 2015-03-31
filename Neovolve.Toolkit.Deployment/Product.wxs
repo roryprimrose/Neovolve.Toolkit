@@ -1,0 +1,162 @@
+﻿<?xml version="1.0"
+      encoding="UTF-8" ?>
+<?include Definitions.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product Id="*"
+           Name="$(var.ProductName) $(var.ProductVersion)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.CompanyName)"
+           UpgradeCode="8EAC5BF5-5C83-464C-B025-016C593E0CF1">
+    <Package InstallerVersion="200"
+             Manufacturer="$(var.CompanyName)"
+             Description="$(var.Description)"
+             Comments="$(var.Comments)"
+             Keywords="$(var.Keywords)"
+             Compressed="yes" />
+    <Media Id="1"
+           Cabinet="media1.cab"
+           EmbedCab="yes" />
+
+    <PropertyRef Id="NETFRAMEWORK40FULL" />
+
+    <Condition Message="This application requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    </Condition>
+
+    <Property Id="VSINSTALLPATH">
+      <RegistrySearch Id="VSRootRegistry"
+                      Root="HKLM"
+                      Key="SOFTWARE\Microsoft\VisualStudio\10.0\Setup\VS"
+                      Name="EnvironmentDirectory"
+                      Type="directory" />
+    </Property>
+
+    <Condition Message="This application requires Visual Studio 2010. Please install Visual Studio 2010 then run this installer again.">
+      <![CDATA[Installed OR VSINSTALLPATH]]>
+    </Condition>
+
+    <Directory Id="TARGETDIR"
+               Name="SourceDir">
+      <Directory Id="VSINSTALLPATH">
+        <Directory Id="Extensions"
+                   Name="Extensions">
+          <Directory Id="CompanyDir"
+                     Name="$(var.CompanyName)">
+            <Directory Id="ProductDir"
+                       Name="$(var.ProductName)">
+              <Directory Id="INSTALLLOCATION"
+                         Name="$(var.ProductVersion)">
+                <Directory Id="CodeContracts"
+                           Name="CodeContracts">
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="CompanyStartMenu"
+                   Name="$(var.CompanyName)">
+          <Directory Id="ProductStartMenu"
+                     Name="$(var.ProductName) $(var.ProductVersion)">
+            <Component Id="ApplicationShortcuts"
+                       Guid="79037777-F381-40D7-92DD-37AB7BC587EE">
+
+              <Shortcut Id="ApplicationStartMenuShortcut"
+                        Name="$(var.ProductName)"
+                        Description="$(var.ProductName) Documentation"
+                        Target="[INSTALLLOCATION]$(var.Neovolve.Toolkit.TargetName).chm"
+                        WorkingDirectory="INSTALLLOCATION" />
+              <Shortcut Id="LicenseStartMenuShortcut"
+                        Name="License"
+                        Description="License"
+                        Target="[INSTALLLOCATION]License.rtf"
+                        WorkingDirectory="INSTALLLOCATION" />
+              <util:InternetShortcut Id="BlogLink"
+                                     Directory="ProductStartMenu"
+                                     Name="Neovolve.Toolkit Blog.url"
+                                     Target="http://www.neovolve.com"
+                                     Type="url" />
+              <util:InternetShortcut Id="FeedbackLink"
+                                     Directory="ProductStartMenu"
+                                     Name="Neovolve.Toolkit Feedback.url"
+                                     Target="http://neovolve.codeplex.com/workitem/list/basic"
+                                     Type="url" />
+              <util:InternetShortcut Id="DiscussionLink"
+                                     Directory="ProductStartMenu"
+                                     Name="Neovolve.Toolkit Discussion.url"
+                                     Target="http://neovolve.codeplex.com/discussions"
+                                     Type="url" />
+
+              <RemoveFolder Id="RemoveProductStartMenu"
+                            Directory="ProductStartMenu"
+                            On="uninstall" />
+              <RemoveFolder Id="Remove$(var.CompanyName)StartMenu"
+                            Directory="CompanyStartMenu"
+                            On="uninstall" />
+              <RegistryValue Root="HKCU"
+                             Key="Software\$(var.CompanyName)\$(var.ProductName)"
+                             Name="installed"
+                             Type="integer"
+                             Value="1" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="ProductFeature"
+             Title="$(var.ProductName) $(var.ProductVersion)"
+             Level="1"
+             AllowAdvertise="no"
+             InstallDefault="local"
+             Absent='disallow'
+             Display='expand'>
+
+      <ComponentGroupRef Id="Binaries" />
+      <ComponentGroupRef Id="Symbols" />
+      <ComponentGroupRef Id="XmlDocumentation" />
+      <ComponentGroupRef Id="CodeContracts" />
+      <ComponentGroupRef Id="Unity" />
+      <ComponentGroupRef Id="AdditionalContent" />
+      <ComponentGroupRef Id="VsPackage" />
+
+      <Feature Id="StartMenuShortcut"
+               Level="1"
+               Title="Start menu"
+               InstallDefault="local">
+        <ComponentRef Id="ApplicationShortcuts" />
+      </Feature>
+
+      <Feature Id="AddReferenceRegistration"
+               Level="1"
+               Title="Add Reference Registration"
+               InstallDefault="local">
+        <ComponentGroupRef Id="VsAddReference" />
+      </Feature>
+
+    </Feature>
+
+    <!-- Specify the license agreement text to be shown in the UI. -->
+    <WixVariable Id="WixUILicenseRtf"
+                 Value="$(var.SolutionDir)Solution Items\License.rtf" />
+    <WixVariable Id="WixUIBannerBmp"
+                 Value="$(var.SolutionDir)Neovolve.Toolkit.Deployment\Bitmaps\TopBanner.bmp" />
+    <WixVariable Id="WixUIDialogBmp"
+                 Value="$(var.SolutionDir)Neovolve.Toolkit.Deployment\Bitmaps\DialogBackground.bmp" />
+    <Property Id="WIXUI_INSTALLDIR"
+              Value="INSTALLLOCATION" />
+    <Icon Id="PackageIcon"
+          SourceFile="$(var.SolutionDir)Solution Items\Cog.ico" />
+    <?include ControlPanel.wxi ?>
+
+    <UIRef Id="WixUI_ErrorProgressText" />
+    <UIRef Id="WixUI_Mondo" />
+
+  </Product>
+</Wix>

@@ -1,0 +1,96 @@
+﻿<Activity mc:Ignorable="sap"
+          x:Class="Neovolve.Toolkit.Workflow.UnitTests.Activities.DisposalScopeActivity"
+          xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+          xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+          xmlns:ntwa="clr-namespace:Neovolve.Toolkit.Workflow.Activities;assembly=Neovolve.Toolkit.Workflow"
+          xmlns:s="clr-namespace:System;assembly=mscorlib"
+          xmlns:s1="clr-namespace:System;assembly=System"
+          xmlns:s2="clr-namespace:System;assembly=System.Xml"
+          xmlns:s3="clr-namespace:System;assembly=System.Core"
+          xmlns:s4="clr-namespace:System;assembly=System.ServiceModel"
+          xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+          xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+          xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+          xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+          xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+          xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+          xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+          xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+          xmlns:si="clr-namespace:System.IO;assembly=System.Core"
+          xmlns:si1="clr-namespace:System.IO;assembly=System"
+          xmlns:si2="clr-namespace:System.IO;assembly=mscorlib"
+          xmlns:si3="clr-namespace:System.IO;assembly=System.ServiceModel"
+          xmlns:si4="clr-namespace:System.IO;assembly=WindowsBase"
+          xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+          xmlns:ssc="clr-namespace:System.Security.Cryptography;assembly=System.Core"
+          xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<x:Members>
+		<x:Property Name="DisposableInstance"
+		            Type="InArgument(s:IDisposable)" />
+		<x:Property Name="DestroyInScope"
+		            Type="InArgument(x:Boolean)" />
+		<x:Property Name="PersistInScope"
+		            Type="InArgument(x:Boolean)" />
+		<x:Property Name="ThrowException"
+		            Type="InArgument(x:Boolean)" />
+		<x:Property Name="BodyExecuted"
+		            Type="OutArgument(x:Boolean)" />
+	</x:Members>
+	<sap:VirtualizedContainerService.HintSize>552,1039</sap:VirtualizedContainerService.HintSize>
+	<mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
+	<ntwa:DisposalScope x:TypeArguments="s:IDisposable"
+	                    sad:XamlDebuggerXmlReader.FileName="D:\Codeplex\Neovolve.Toolkit\Neovolve.Toolkit.Workflow.UnitTests\Activities\DisposalScopeActivity.xaml"
+	                    sap:VirtualizedContainerService.HintSize="512,999"
+	                    Instance="[DisposableInstance]">
+		<ActivityAction x:TypeArguments="s:IDisposable">
+			<ActivityAction.Argument>
+				<DelegateInArgument x:TypeArguments="s:IDisposable"
+				                    Name="instance" />
+			</ActivityAction.Argument>
+			<Sequence sap:VirtualizedContainerService.HintSize="486,920">
+				<sap:WorkflowViewStateService.ViewState>
+					<scg3:Dictionary x:TypeArguments="x:String, x:Object">
+						<x:Boolean x:Key="IsExpanded">True</x:Boolean>
+					</scg3:Dictionary>
+				</sap:WorkflowViewStateService.ViewState>
+				<Assign sap:VirtualizedContainerService.HintSize="464,58">
+					<Assign.To>
+						<OutArgument x:TypeArguments="x:Boolean">[BodyExecuted]</OutArgument>
+					</Assign.To>
+					<Assign.Value>
+						<InArgument x:TypeArguments="x:Boolean">True</InArgument>
+					</Assign.Value>
+				</Assign>
+				<If Condition="[ThrowException]"
+				    sap:VirtualizedContainerService.HintSize="464,206">
+					<If.Then>
+						<Throw Exception="[New TimeoutException]"
+						       sap:VirtualizedContainerService.HintSize="269,100" />
+					</If.Then>
+				</If>
+				<If Condition="[PersistInScope]"
+				    sap:VirtualizedContainerService.HintSize="464,206">
+					<If.Then>
+						<Persist sap:VirtualizedContainerService.HintSize="269,100" />
+					</If.Then>
+				</If>
+				<If Condition="[DestroyInScope]"
+				    sap:VirtualizedContainerService.HintSize="464,206">
+					<If.Then>
+						<Assign sap:VirtualizedContainerService.HintSize="291,100">
+							<Assign.To>
+								<OutArgument x:TypeArguments="s:IDisposable">[instance]</OutArgument>
+							</Assign.To>
+							<Assign.Value>
+								<InArgument x:TypeArguments="s:IDisposable">[Nothing]</InArgument>
+							</Assign.Value>
+						</Assign>
+					</If.Then>
+				</If>
+			</Sequence>
+		</ActivityAction>
+	</ntwa:DisposalScope>
+</Activity>

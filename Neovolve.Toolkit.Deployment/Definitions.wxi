@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Include>
+  <?define CompanyName = "Neovolve" ?>
+  <?define ProductVersion = "1.1.237.25175" ?>
+  <?define ProductName = "Neovolve Toolkit" ?>
+  <?define Description = "The Neovolve Toolkit provides components to assist in quick development of client and server applications" ?>
+  <?define Comments = "This version requires v4.0 of the .Net framework" ?>
+  <?define Keywords = ".Net, Toolkit, WCF, WF4, Unity, Dependency Injection, Instrumentation" ?>
+  <?define ContactName = "Rory Primrose" ?>
+  <?define HelpLink = "http://neovolve.codeplex.com/workitem/list/basic" ?>
+  <?define AboutLink = "http://neovolve.codeplex.com/" ?>
+  <?define ContactLink = "http://www.neovolve.com/" ?>
+</Include>

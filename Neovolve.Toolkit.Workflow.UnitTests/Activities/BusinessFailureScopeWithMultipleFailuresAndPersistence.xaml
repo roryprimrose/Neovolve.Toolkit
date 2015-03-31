@@ -1,0 +1,31 @@
+﻿<Activity mc:Ignorable="sap"
+          x:Class="Neovolve.Toolkit.Workflow.UnitTests.Activities.BusinessFailureScopeWithMultipleFailuresAndPersistence"
+          xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+          xmlns:ntwa="clr-namespace:Neovolve.Toolkit.Workflow.Activities;assembly=Neovolve.Toolkit.Workflow"
+          xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+          xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:nt="clr-namespace:Neovolve.Toolkit;assembly=Neovolve.Toolkit">
+	<x:Members>
+		<x:Property Name="FirstFailure"
+		            Type="InArgument(nt:BusinessFailure(x:Int32))" />
+		<x:Property Name="SecondFailure"
+		            Type="InArgument(nt:BusinessFailure(x:Int32))" />
+	</x:Members>
+	<sap:VirtualizedContainerService.HintSize>262,310</sap:VirtualizedContainerService.HintSize>
+	<mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
+	<ntwa:BusinessFailureScope x:TypeArguments="x:Int32"
+	                           sad:XamlDebuggerXmlReader.FileName="D:\Codeplex\Neovolve.Toolkit\Neovolve.Toolkit.Workflow.UnitTests\Activities\BusinessFailureScopeWithMultipleFailuresAndPersistence.xaml"
+	                           sap:VirtualizedContainerService.HintSize="222,270">
+		<ntwa:BusinessFailureEvaluator x:TypeArguments="x:Int32"
+		                               Failure="[FirstFailure]"
+		                               sap:VirtualizedContainerService.HintSize="200,22" />
+		<ntwa:ExecuteBookmark BookmarkName="TestBookmark"
+		                      sap:VirtualizedContainerService.HintSize="200,22" />
+		<ntwa:BusinessFailureEvaluator x:TypeArguments="x:Int32"
+		                               Failure="[SecondFailure]"
+		                               sap:VirtualizedContainerService.HintSize="200,22" />
+	</ntwa:BusinessFailureScope>
+</Activity>

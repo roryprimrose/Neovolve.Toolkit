@@ -1,0 +1,175 @@
+﻿<sap:ActivityDesigner x:Class="Neovolve.Toolkit.Workflow.Design.Presentation.InstanceResolverDesigner"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:s="clr-namespace:System;assembly=mscorlib"
+                      xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+                      xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+                      xmlns:conv="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+                      xmlns:sadm="clr-namespace:System.Activities.Presentation.Model;assembly=System.Activities.Presentation"
+                      xmlns:ComponentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+                      xmlns:ntw="clr-namespace:Neovolve.Toolkit.Workflow;assembly=Neovolve.Toolkit.Workflow"
+                      xmlns:ntwd="clr-namespace:Neovolve.Toolkit.Workflow.Design"
+                      xmlns:Presentation="clr-namespace:Neovolve.Toolkit.Workflow.Design.Presentation"
+                      xmlns:Converters="clr-namespace:Neovolve.Toolkit.Workflow.Design.Converters">
+	<sap:ActivityDesigner.Icon>
+		<DrawingBrush>
+			<DrawingBrush.Drawing>
+				<ImageDrawing>
+					<ImageDrawing.Rect>
+						<Rect Location="0,0"
+						      Size="16,16">
+						</Rect>
+					</ImageDrawing.Rect>
+					<ImageDrawing.ImageSource>
+						<BitmapImage UriSource="brick.png"></BitmapImage>
+					</ImageDrawing.ImageSource>
+				</ImageDrawing>
+			</DrawingBrush.Drawing>
+		</DrawingBrush>
+	</sap:ActivityDesigner.Icon>
+	<sap:ActivityDesigner.Resources>
+		<conv:ModelToObjectValueConverter x:Key="modelItemConverter"
+		                                  x:Uid="sadm:ModelToObjectValueConverter_1" />
+		<Converters:InstanceResolverItemVisibilityConverter x:Key="visibilityConverter" />
+		<ResourceDictionary x:Key="StyleResources">
+			<Style TargetType="Presentation:InstanceResolverItem">
+				<Setter Property="Margin"
+				        Value="2" />
+			</Style>
+		</ResourceDictionary>
+		<ObjectDataProvider MethodName="GetValues"
+		                    ObjectType="{x:Type s:Enum}"
+		                    x:Key="EnumSource">
+			<ObjectDataProvider.MethodParameters>
+				<x:Type TypeName="ntw:GenericArgumentCount" />
+			</ObjectDataProvider.MethodParameters>
+		</ObjectDataProvider>
+		<DataTemplate x:Key="Collapsed">
+			<TextBlock HorizontalAlignment="Center"
+			           FontStyle="Italic"
+			           Foreground="Gray">
+				Double-click to view
+			</TextBlock>
+		</DataTemplate>
+		<DataTemplate x:Key="Expanded">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<StackPanel Orientation="Vertical">
+					<StackPanel Orientation="Horizontal"
+					            Margin="2">
+						<TextBlock VerticalAlignment="Center">Argument Count:</TextBlock>
+						<ComboBox x:Name="ArgumentCountList"
+						          ItemsSource="{Binding Source={StaticResource EnumSource}}"
+						          SelectedItem="{Binding Path=ModelItem.ArgumentCount, Mode=TwoWay}"
+						          Margin="5,0,0,0"
+						          SelectionChanged="ArgumentCountChanged" />
+					</StackPanel>
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName1, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument1.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType1, Mode=TwoWay, Converter={StaticResource modelItemConverter}}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.public void RetryActivity, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument2.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType2, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=2}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName3, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument3.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType3, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=3}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName4, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument4.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType4, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=4}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName5, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument5.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType5, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=5}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName6, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument6.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType6, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=6}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName7, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument7.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType7, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=7}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName8, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument8.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType8, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=8}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName9, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument9.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType9, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=9}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName10, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument10.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType10, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=10}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName11, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument11.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType11, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=11}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName12, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument12.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType12, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=12}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName13, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument13.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType13, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=13}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName14, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument14.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType14, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=14}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName15, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument15.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType15, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=15}" />
+
+					<Presentation:InstanceResolverItem ResolutionName="{Binding Path=ModelItem.ResolutionName16, Mode=TwoWay}"
+					                                   InstanceName="{Binding ModelItem.Body.Argument16.Name, Mode=TwoWay}"
+					                                   InstanceType="{Binding Path=ModelItem.ArgumentType16, Mode=TwoWay, Converter={StaticResource modelItemConverter}}"
+					                                   Visibility="{Binding Path=ModelItem.ArgumentCount, Converter={StaticResource visibilityConverter}, ConverterParameter=16}" />
+
+				</StackPanel>
+
+				<sap:WorkflowItemPresenter Item="{Binding ModelItem.Body.Handler}"
+				                           HintText="Drop activity"
+				                           Grid.Row="1"
+				                           Margin="6" />
+			</Grid>
+		</DataTemplate>
+		<Style x:Key="ExpandOrCollapsedStyle"
+		       TargetType="{x:Type ContentPresenter}">
+			<Setter Property="ContentTemplate"
+			        Value="{DynamicResource Collapsed}" />
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding Path=ShowExpanded}"
+				             Value="true">
+					<Setter Property="ContentTemplate"
+					        Value="{DynamicResource Expanded}" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+	</sap:ActivityDesigner.Resources>
+	<Grid>
+		<ContentPresenter Style="{DynamicResource ExpandOrCollapsedStyle}"
+		                  Content="{Binding}" />
+	</Grid>
+</sap:ActivityDesigner>

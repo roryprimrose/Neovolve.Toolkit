@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CustomUserNamePasswordValidationNotEnabled" xml:space="preserve">
+    <value>Custom user name password validation is not enabled as was expected.</value>
+  </data>
+  <data name="InvalidCastExceptionMessage" xml:space="preserve">
+    <value>The type '{0}' cannot be cast as type '{1}'.</value>
+  </data>
+  <data name="InvalidConfigurationSectionTypeExceptionMessage" xml:space="preserve">
+    <value>Invalid configuration section type for section name '{0}'. The type '{1}' was expected, but '{2}' was found.</value>
+  </data>
+  <data name="InvalidTypeLoadFromConfigurationFailed" xml:space="preserve">
+    <value>The type '{0}' loaded from configuration with key '{1}' is the incorrect type. It is not assignable to '{2}'.</value>
+  </data>
+  <data name="MemberTraceDisposedExceptionMessage" xml:space="preserve">
+    <value>Unable to write any trace messages because the MemberTrace instance is already disposed.</value>
+  </data>
+  <data name="NoCustomUserNamePasswordValidatorConfigured" xml:space="preserve">
+    <value>No custom user name password validator has been configured.</value>
+  </data>
+  <data name="NoPasswordProvided" xml:space="preserve">
+    <value>No password has been provided.</value>
+  </data>
+  <data name="NoUserNameProvided" xml:space="preserve">
+    <value>No user name has been provided.</value>
+  </data>
+  <data name="TraceActivityNotRunningExceptionMessage" xml:space="preserve">
+    <value>The current ActivityTrace instance is not running and cannot write the event.</value>
+  </data>
+  <data name="TraceActivityRunningExceptionMessage" xml:space="preserve">
+    <value>The current ActivityTrace instance is already running and cannot be started or resumed.</value>
+  </data>
+  <data name="TraceActivityStackCorruptedExceptionMessage" xml:space="preserve">
+    <value>The ActivityId of the current ActivityTrace does not match the current activity in Trace.CorrelationManager.</value>
+  </data>
+  <data name="TraceActivitySuspendedExceptionMessage" xml:space="preserve">
+    <value>The current ActivityTrace instance is suspended and must be resumed before writing any further events.</value>
+  </data>
+  <data name="TraceSourceLoadExceptionMessage" xml:space="preserve">
+    <value>Failed to determine a TraceSource name to use or the TraceSource could not be loaded.</value>
+  </data>
+  <data name="TypeLoadFromConfigurationKeyFailed" xml:space="preserve">
+    <value>Failed to load type '{0}' defined in configuration with key '{1}'. An instance of '{2}' could not be created.</value>
+  </data>
+  <data name="ChannelProxyHandler_MultipleNamedEndpointConfigurationsFoundForContract" xml:space="preserve">
+    <value>The endpoint configuration for contract type '{0}' could not be automatically determined as configuration defines multiple named endpoints.</value>
+  </data>
+  <data name="MemberTrace_MethodNameTitle" xml:space="preserve">
+    <value>Method: </value>
+  </data>
+  <data name="MemberTrace_DeclaringTypeTitle" xml:space="preserve">
+    <value>Type: </value>
+  </data>
+  <data name="MemberTrace_AssemblyTitle" xml:space="preserve">
+    <value>Assembly: </value>
+  </data>
+  <data name="MemberTrace_ThreadNameTitle" xml:space="preserve">
+    <value>Thread name: </value>
+  </data>
+  <data name="MemberTrace_ThreadIdentityTitle" xml:space="preserve">
+    <value>Thread identity: </value>
+  </data>
+  <data name="MemberTrace_EnvironmentIdentityTitle" xml:space="preserve">
+    <value>Environment identity: </value>
+  </data>
+  <data name="MemberTrace_MachineNameTitle" xml:space="preserve">
+    <value>Machine: </value>
+  </data>
+  <data name="MemberTrace_OperatingSystemTitle" xml:space="preserve">
+    <value>Operating System: </value>
+  </data>
+  <data name="MemberTrace_MailModuleTitle" xml:space="preserve">
+    <value>Main module:</value>
+  </data>
+  <data name="ChannelProxyHandler_NoEndpointConfigurationForServiceType" xml:space="preserve">
+    <value>No configuration could be found for service type '{0}'.</value>
+  </data>
+  <data name="RecordTrace_AdditionalParametersHeader" xml:space="preserve">
+    <value>Additional Parameters:</value>
+  </data>
+  <data name="RecordTrace_AdditionalParameterOutput" xml:space="preserve">
+    <value>{0}. {1}</value>
+  </data>
+  <data name="ConfigurationManagerStore_RequiredValueMissing" xml:space="preserve">
+    <value>No configuration value found for key '{0}' where a value is required.</value>
+  </data>
+  <data name="SystemFailureException_UnknownFailure" xml:space="preserve">
+    <value>An unknown system failure has occurred.</value>
+  </data>
+  <data name="BusinessFailureException_FailureMessageFormat" xml:space="preserve">
+    <value>{0} - {1}</value>
+  </data>
+  <data name="BusinessFailureException_MessageHeader" xml:space="preserve">
+    <value>The following business failures have been encountered:
+{0}</value>
+  </data>
+  <data name="BusinessFailureException_UnknownFailure" xml:space="preserve">
+    <value>Unknown failure</value>
+  </data>
+  <data name="TypeResolver_TypeNotResolvedFromConfigurationKey" xml:space="preserve">
+    <value>The type related to type '{0}' could not be found with configuration key '{1}'</value>
+  </data>
+  <data name="TypeResolver_TypeNotResolvedFromConfiguration" xml:space="preserve">
+    <value>No matching configuration was found to load a type related to type '{0}'</value>
+  </data>
+  <data name="ChannelProxyHandler_MultipleUnnamedEndpointConfigurationsFoundForContract" xml:space="preserve">
+    <value>The endpoint configuration for contract type '{0}' could not be automatically determined as configuration defines multiple unnamed endpoints.</value>
+  </data>
+</root>

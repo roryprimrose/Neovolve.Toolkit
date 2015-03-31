@@ -1,0 +1,51 @@
+﻿<Activity mc:Ignorable="sap"
+          x:Class="Neovolve.Toolkit.Workflow.UnitTests.Activities.BusinessFailureScopeLink"
+          xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+          xmlns:local="clr-namespace:Neovolve.Toolkit.Workflow.UnitTests.Activities"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+          xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+          xmlns:ntwa="clr-namespace:Neovolve.Toolkit.Workflow.Activities;assembly=Neovolve.Toolkit.Workflow"
+          xmlns:s="clr-namespace:System;assembly=mscorlib"
+          xmlns:s1="clr-namespace:System;assembly=System"
+          xmlns:s2="clr-namespace:System;assembly=System.Xml"
+          xmlns:s3="clr-namespace:System;assembly=System.Core"
+          xmlns:s4="clr-namespace:System;assembly=System.ServiceModel"
+          xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+          xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+          xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+          xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+          xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+          xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+          xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+          xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+          xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+          xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+          xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<x:Members>
+		<x:Property Name="MatchingTypeChildInScope"
+		            Type="OutArgument(x:Boolean)" />
+		<x:Property Name="MismatchingTypeChildInScope"
+		            Type="OutArgument(x:Boolean)" />
+	</x:Members>
+	<sap:VirtualizedContainerService.HintSize>284,372</sap:VirtualizedContainerService.HintSize>
+	<mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
+	<ntwa:BusinessFailureScope x:TypeArguments="x:Int32"
+	                           sad:XamlDebuggerXmlReader.FileName="D:\Codeplex\Neovolve.Toolkit\Neovolve.Toolkit.Workflow.UnitTests\Activities\BusinessFailureScopeLink.xaml"
+	                           sap:VirtualizedContainerService.HintSize="244,332">
+		<Sequence sap:VirtualizedContainerService.HintSize="222,208">
+			<sap:WorkflowViewStateService.ViewState>
+				<scg3:Dictionary x:TypeArguments="x:String, x:Object">
+					<x:Boolean x:Key="IsExpanded">True</x:Boolean>
+				</scg3:Dictionary>
+			</sap:WorkflowViewStateService.ViewState>
+			<local:OutputIsInScope x:TypeArguments="x:Boolean"
+			                       sap:VirtualizedContainerService.HintSize="200,22"
+			                       Result="[MismatchingTypeChildInScope]" />
+			<local:OutputIsInScope x:TypeArguments="x:Int32"
+			                       sap:VirtualizedContainerService.HintSize="200,22"
+			                       Result="[MatchingTypeChildInScope]" />
+		</Sequence>
+	</ntwa:BusinessFailureScope>
+</Activity>

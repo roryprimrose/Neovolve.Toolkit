@@ -1,0 +1,19 @@
+<?xml version="1.0"
+      encoding="utf-8" ?>
+
+<Include>
+
+  <Property Id="ARPCOMMENTS"
+            Value="$(var.Comments)" />
+  <Property Id="ARPCONTACT"
+            Value="$(var.ContactName)" />
+  <Property Id="ARPPRODUCTICON"
+            Value="PackageIcon" />
+  <Property Id="ARPHELPLINK"
+            Value="$(var.HelpLink)" />
+  <Property Id="ARPURLINFOABOUT"
+            Value="$(var.AboutLink)" />
+  <Property Id="ARPHELPTELEPHONE"
+            Value="$(var.ContactLink)" />
+
+</Include>

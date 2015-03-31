@@ -1,0 +1,116 @@
+﻿<Activity mc:Ignorable="sap"
+          x:Class="Neovolve.Toolkit.Workflow.UnitTests.Activities.ResolverWithoutResolution"
+          sap:VirtualizedContainerService.HintSize="454,240"
+          mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+          xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+          xmlns:local="clr-namespace:Neovolve.Toolkit.Workflow.UnitTests"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+          xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+          xmlns:ntw="clr-namespace:Neovolve.Toolkit.Workflow;assembly=Neovolve.Toolkit.Workflow"
+          xmlns:ntwa="clr-namespace:Neovolve.Toolkit.Workflow.Activities;assembly=Neovolve.Toolkit.Workflow"
+          xmlns:s="clr-namespace:System;assembly=mscorlib"
+          xmlns:s1="clr-namespace:System;assembly=System"
+          xmlns:s2="clr-namespace:System;assembly=System.Xml"
+          xmlns:s3="clr-namespace:System;assembly=System.Core"
+          xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+          xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+          xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+          xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+          xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+          xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+          xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+          xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+          xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ntwa:InstanceResolver x:TypeArguments="local:ITestInstance, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object, x:Object"
+	                       ResolutionName1="{x:Null}"
+	                       ResolutionName10="{x:Null}"
+	                       ResolutionName11="{x:Null}"
+	                       ResolutionName12="{x:Null}"
+	                       ResolutionName13="{x:Null}"
+	                       ResolutionName14="{x:Null}"
+	                       ResolutionName15="{x:Null}"
+	                       ResolutionName16="{x:Null}"
+	                       ResolutionName2="{x:Null}"
+	                       ResolutionName3="{x:Null}"
+	                       ResolutionName4="{x:Null}"
+	                       ResolutionName5="{x:Null}"
+	                       ResolutionName6="{x:Null}"
+	                       ResolutionName7="{x:Null}"
+	                       ResolutionName8="{x:Null}"
+	                       ResolutionName9="{x:Null}"
+	                       ArgumentCount="One"
+	                       DisplayName="InstanceResolver&lt;ITestInstance&gt;"
+	                       sad:XamlDebuggerXmlReader.FileName="E:\Codeplex\Neovolve.Toolkit\Neovolve.Toolkit.Workflow.UnitTests\Activities\ResolverWithoutResolution.xaml"
+	                       sap:VirtualizedContainerService.HintSize="414,200">
+		<ActivityAction x:TypeArguments="ntw:InstanceHandler(local:ITestInstance), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object), ntw:InstanceHandler(x:Object)">
+			<ActivityAction.Argument1>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(local:ITestInstance)"
+				                    Name="handler1" />
+			</ActivityAction.Argument1>
+			<ActivityAction.Argument10>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler10" />
+			</ActivityAction.Argument10>
+			<ActivityAction.Argument11>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler11" />
+			</ActivityAction.Argument11>
+			<ActivityAction.Argument12>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler12" />
+			</ActivityAction.Argument12>
+			<ActivityAction.Argument13>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler13" />
+			</ActivityAction.Argument13>
+			<ActivityAction.Argument14>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler14" />
+			</ActivityAction.Argument14>
+			<ActivityAction.Argument15>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler15" />
+			</ActivityAction.Argument15>
+			<ActivityAction.Argument16>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler16" />
+			</ActivityAction.Argument16>
+			<ActivityAction.Argument2>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler2" />
+			</ActivityAction.Argument2>
+			<ActivityAction.Argument3>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler3" />
+			</ActivityAction.Argument3>
+			<ActivityAction.Argument4>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler4" />
+			</ActivityAction.Argument4>
+			<ActivityAction.Argument5>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler5" />
+			</ActivityAction.Argument5>
+			<ActivityAction.Argument6>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler6" />
+			</ActivityAction.Argument6>
+			<ActivityAction.Argument7>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler7" />
+			</ActivityAction.Argument7>
+			<ActivityAction.Argument8>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler8" />
+			</ActivityAction.Argument8>
+			<ActivityAction.Argument9>
+				<DelegateInArgument x:TypeArguments="ntw:InstanceHandler(x:Object)"
+				                    Name="handler9" />
+			</ActivityAction.Argument9>
+			<WriteLine sap:VirtualizedContainerService.HintSize="388,61"
+			           Text="Do something without a resolution action" />
+		</ActivityAction>
+	</ntwa:InstanceResolver>
+</Activity>

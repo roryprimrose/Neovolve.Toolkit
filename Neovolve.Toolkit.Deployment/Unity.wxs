@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Microsoft.Practices.ServiceLocation"
+                 Guid="9ECF1D49-1069-4742-A299-C4103538697D">
+        <File Id="Microsoft.Practices.ServiceLocation.dll"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)Microsoft.Practices.ServiceLocation.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Microsoft.Practices.Unity.Configuration"
+                 Guid="442E7018-5966-4459-9CE9-1680A96A76B4">
+        <File Id="Microsoft.Practices.Unity.Configuration.dll"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)Microsoft.Practices.Unity.Configuration.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Microsoft.Practices.Unity.Configuration.Documentation"
+                 Guid="0546B32B-4D83-4765-9E2F-31BB9EE0E09F">
+        <File Id="Microsoft.Practices.Unity.Configuration.xml"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)Microsoft.Practices.Unity.Configuration.xml"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Microsoft.Practices.Unity"
+                 Guid="9A45AF92-FBA0-440B-9EF0-4E6E50B1B557">
+        <File Id="Microsoft.Practices.Unity.dll"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)Microsoft.Practices.Unity.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Microsoft.Practices.Unity.Documentation"
+                 Guid="559F5D60-7B6E-40C7-BCB5-5975D737AFDD">
+        <File Id="Microsoft.Practices.Unity.xml"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)Microsoft.Practices.Unity.xml"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Unity">
+      <ComponentRef Id="Microsoft.Practices.ServiceLocation" />
+      <ComponentRef Id="Microsoft.Practices.Unity.Configuration" />
+      <ComponentRef Id="Microsoft.Practices.Unity.Configuration.Documentation" />
+      <ComponentRef Id="Microsoft.Practices.Unity" />
+      <ComponentRef Id="Microsoft.Practices.Unity.Documentation" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Neovolve.Toolkit.Unity.WebIntegrationTests.TestService" CodeBehind="TestService.svc.cs" %>

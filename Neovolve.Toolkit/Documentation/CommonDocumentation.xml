@@ -1,0 +1,364 @@
+﻿<?xml version="1.0"
+      encoding="utf-8" ?>
+
+<CommonDocumentation>
+  <Remarks>
+    <Remark name="AttributeConstructorCLSCompliant">
+      <para>
+        This constructor overload is provided for scenarios where only one value is provided and CLS compliance is required.
+        Using attributes that take array parameters is not CLS compliant.
+      </para>
+    </Remark>
+    <Remark name="MethodNotCLSCompliant">
+      <para>This method is not CLS Compliant.</para>
+    </Remark>
+    <Remark name="NotUpgradeableReadLock">
+      <para>This constructor acquires a read lock that is not upgradeable to a write lock.</para>
+    </Remark>
+    <Remark name="InfiniteTimeout">
+      <para>
+        As no timeout value is supplied, this call will block indefinitely until the lock is entered.
+      </para>
+    </Remark>
+    <Remark name="DescribeUpgradeableLock">
+      <para>
+        Unlike
+        <see cref="ReaderWriterLock" />
+        , usage of a
+        <see cref="ReaderWriterLockSlim" />
+        instance
+        must explicitly indicate whether a standard read lock or an upgradeable read lock is requested.
+        Only an upgradeable read lock can be upgraded to a write lock. See
+        <see cref="ReaderWriterLockSlim.EnterUpgradeableReadLock" />
+        for further information.
+      </para>
+    </Remark>
+    <Remark name="RecommendReaderWriterLockSlim">
+      <para>
+        <see cref="ReaderWriterLockSlim" />
+        is recommended for use instead of
+        <see cref="ReaderWriterLock" />
+        .
+        <see cref="ReaderWriterLockSlim" />
+        has simplified lock recursion rules and is less likely to result in deadlock scenarios.
+      </para>
+    </Remark>
+    <Remark name="PreferReaderWriterLockSlimUsage">
+      <note>
+        Where possible, use a
+        <see cref="ReaderWriterLockSlim" />
+        instance for the
+        <paramref name="lockReference" />
+        value.
+        <see cref="ReaderWriterLockSlim" />
+        has simplified lock recursion rules and is less likely to result in deadlock scenarios.
+      </note>
+    </Remark>
+    <Remark name="AvoidExternalRelease">
+      <note>
+        The
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        classes encapsulate the logic of requesting, entering
+        and exiting locks using the provided lock reference.
+        Lock references (
+        <see cref="ReaderWriterLock" />
+        and
+        <see cref="ReaderWriterLockSlim" />
+        )
+        provided to these classes should not have their release/exit lock methods manually invoked in
+        user code as they maintain their own internal lock counters.
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        will release their relevant locks when they are disposed.
+        See the example below for incorrect usage of these classes.
+      </note>
+      <para>
+        Calling
+        <see cref="Dispose" />
+        manually is supported but not recommended.
+        The
+        <see cref="LockReader" />
+        /
+        <see cref="LockWriter" />
+        knows internally that it is already disposed and won't release the lock again.
+        In this situation, the code between the Dispose() and the instance going out of scope
+        will not be protected with the lock obtained by that instance.
+      </para>
+      <para>
+        Never invoke the lock release/exit methods on the lock reference directly. In this case,
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        are not aware that the lock has already been released
+        and will attempt to release the lock when it is disposed. Where recursive locks are obtained, this may not have
+        a great affect, but debugging locking problems will become difficult. Greater risk is encountered
+        where the first lock in a recursive chain is released by a child lock as per the incorrect usage example below.
+      </para>
+    </Remark>
+    <Remark name="RecommendUsingStatement">
+      <para>
+        The
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        classes are best used with a using statement.
+        The using statement ensures that the
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        instances are disposed and exit their relevant locks even when exceptions are encountered.
+        Manually disposing of
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        instances is supported,
+        but the locks held will be released.
+        The using statement also provides a syntax to easily understand the scope of a lock.
+      </para>
+    </Remark>
+  </Remarks>
+  <Examples>
+    <Example name="ReaderWriterLockSlim">
+      <para>
+        This example demonstrates how to use
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        with a
+        <see cref="ReaderWriterLockSlim" />
+        lock instance to read and write to a resource in a thread safe manner. This example also shows how
+        a read lock can be upgraded to write lock.
+      </para>
+      <code lang="C#"
+            title="ReaderWriterLockSlim example">
+        <![CDATA[
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using Neovolve.Toolkit.Threading;
+
+namespace ConsoleApplication1
+{
+    internal class Program
+    {
+        private static readonly Dictionary<String, String> DataStore = new Dictionary<String, String>();
+
+        private static readonly ReaderWriterLockSlim DataStoreLock = new ReaderWriterLockSlim();
+
+        private static void Main(String[] args)
+        {
+            // Acquire a write lock
+            // In this case we are assuming that the item is not already in the store so we go straight to a write lock
+            using (new LockWriter(DataStoreLock))
+            {
+                const String FirstKey = "SomeKey";
+
+                // Check if the key exists
+                if (DataStore.ContainsKey(FirstKey) == false)
+                {
+                    // Write the entry to the store
+                    DataStore.Add(FirstKey, Guid.NewGuid().ToString());
+                }
+            }
+
+            // Check if there is another value
+            // Acquire a read lock so we can check if the key is in the store
+            using (new LockReader(DataStoreLock, true))
+            {
+                const String SecondKey = "AnotherKey";
+
+                // Check if the key is already in the store
+                // This check is for performance, multiple threads can hold a read lock but only one thread can hold a write lock. 
+                // We don't want to block other threads so we can check if the key exists
+                if (DataStore.ContainsKey(SecondKey) == false)
+                {
+                    // Acquire a write lock
+                    using (new LockWriter(DataStoreLock))
+                    {
+                        // Run the check again to cover cases where multiple threads entered the previous if statement in the read lock
+                        // This check is for safety
+                        if (DataStore.ContainsKey(SecondKey) == false)
+                        {
+                            // Add the item to the store
+                            DataStore.Add(SecondKey, Guid.NewGuid().ToString());
+                        }
+                    }
+                }
+            }
+        }
+    }
+}]]>
+      </code>
+    </Example>
+    <Example name="ReaderWriterLock">
+      <para>
+        This example demonstrates how to use
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        with a
+        <see cref="ReaderWriterLock" />
+        lock instance to read and write to a resource in a thread safe manner. This example also shows how
+        a read lock can be upgraded to write lock.
+      </para>
+      <code lang="C#"
+            title="ReaderWriterLock example">
+        <![CDATA[
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using Neovolve.Toolkit.Threading;
+
+namespace ConsoleApplication1
+{
+    internal class Program
+    {
+        private static readonly Dictionary<String, String> DataStore = new Dictionary<String, String>();
+
+        private static readonly ReaderWriterLock DataStoreLock = new ReaderWriterLock();
+
+        private static void Main(String[] args)
+        {
+            // Acquire a write lock
+            // In this case we are assuming that the item is not already in the store so we go straight to a write lock
+            using (new LockWriter(DataStoreLock))
+            {
+                const String FirstKey = "SomeKey";
+
+                // Check if the key exists
+                if (DataStore.ContainsKey(FirstKey) == false)
+                {
+                    // Write the entry to the store
+                    DataStore.Add(FirstKey, Guid.NewGuid().ToString());
+                }
+            }
+
+            // Check if there is another value
+            // Acquire a read lock so we can check if the key is in the store
+            using (new LockReader(DataStoreLock))
+            {
+                const String SecondKey = "AnotherKey";
+
+                // Check if the key is already in the store
+                // This check is for performance, multiple threads can hold a read lock but only one thread can hold a write lock. 
+                // We don't want to block other threads so we can check if the key exists
+                if (DataStore.ContainsKey(SecondKey) == false)
+                {
+                    // Acquire a write lock
+                    using (new LockWriter(DataStoreLock))
+                    {
+                        // Run the check again to cover cases where multiple threads entered the previous if statement in the read lock
+                        // This check is for safety
+                        if (DataStore.ContainsKey(SecondKey) == false)
+                        {
+                            // Add the item to the store
+                            DataStore.Add(SecondKey, Guid.NewGuid().ToString());
+                        }
+                    }
+                }
+            }
+        }
+    }
+}]]>
+      </code>
+    </Example>
+    <Example name="IncorrectUsage">
+      <para>
+        The following code shows the incorrect usage of
+        <see cref="LockReader" />
+        and
+        <see cref="LockWriter" />
+        .
+        The code manually releases a lock external to
+        <see cref="LockReader" />
+        which requested the lock.
+      </para>
+      <code lang="C#"
+            title="Incorrect usage">
+        <![CDATA[
+    ReaderWriterLock lockReference = new ReaderWriterLock();
+  
+    using (new LockReader(lockReference))
+    {
+        using (LockReader reader = new LockReader(lockReference))
+        {
+            using (new LockWriter(lockReference))
+            {
+            }
+            
+            // Either of the following methods will decrement the read lock count
+            // before LockReader goes out of scope
+            lockReference.ReleaseReaderLock();
+            // or reader.Dispose()            
+        }
+        
+        // DANGER!
+        // As the previous child lock has manually released the lock directly on lockReference,
+        // this outer LockReader is no longer protected by a read lock
+        // The dispose of the this instance will attempt to check for the existence of a lock 
+        // before releasing a lock that no longer exists.
+    }          
+          ]]>
+      </code>
+    </Example>
+  </Examples>
+  <Exceptions>
+    <Exception name="MemberTraceObjectDisposedException">
+      <exception cref="ObjectDisposedException">
+        The
+        <see cref="MemberTrace" />
+        instance has been disposed and can no longer be used.
+      </exception>
+    </Exception>
+    <Exception name="MemberTraceActivityBoundaryTracingNotSupportedException">
+      <exception cref="NotSupportedException">
+        Activity boundary trace messages (Start/Stop) are not supported as they are managed internally.
+      </exception>
+    </Exception>
+    <Exception name="LockRecursionException">
+      <exception cref="LockRecursionException">
+        The
+        <see cref="ReaderWriterLockSlim.RecursionPolicy" />
+        property is
+        <see cref="LockRecursionPolicy.NoRecursion" />
+        and the current thread has already entered the lock.
+      </exception>
+    </Exception>
+    <Exception name="NullLockReferenceException">
+      <exception cref="ArgumentNullException">
+        No
+        <paramref name="lockReference" />
+        was provided.
+      </exception>
+    </Exception>
+    <Exception name="TimeoutException">
+      <exception cref="TimeoutException">
+        The
+        <paramref name="timeout" />
+        value specified has been reached and the lock was not obtained.
+      </exception>
+    </Exception>
+    <Exception name="TimeoutOutOfRangeException">
+      <exception cref="ArgumentOutOfRangeException">
+        The value of
+        <paramref name="timeout" />
+        is negative,  but it is not equal to
+        <see cref="Timeout.Infinite" />
+        (-1), which is the only negative value allowed.
+      </exception>
+    </Exception>
+    <Exception name="TypeLoadException">
+      <exception cref="TypeLoadException">An error handler type name provided was not able to be loaded.</exception>
+    </Exception>
+    <Exception name="InvalidCastExceptionErrorHandlerType">
+      <exception cref="InvalidCastException">
+        An error handler type provided does not implement
+        <see cref="IErrorHandler" />
+        .
+      </exception>
+    </Exception>
+  </Exceptions>
+</CommonDocumentation>

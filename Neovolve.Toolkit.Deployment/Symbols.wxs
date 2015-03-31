@@ -1,0 +1,57 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Symbols"
+                 Guid="95ABB468-BA82-4F99-B028-BF78E0EBBB2D">
+        <File Id="Neovolve.Toolkit.pdb"
+              Source="$(var.Neovolve.Toolkit.TargetDir)$(var.Neovolve.Toolkit.TargetName).pdb"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Server.Symbols"
+                 Guid="FB565D43-AD7A-4D84-BDBE-BB730138900B">
+        <File Id="Neovolve.Toolkit.Server.pdb"
+              Source="$(var.Neovolve.Toolkit.Server.TargetDir)$(var.Neovolve.Toolkit.Server.TargetName).pdb"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Unity.Symbols"
+                 Guid="B5CC3FD7-BED0-4361-B8FB-E5192002A5E7">
+        <File Id="Neovolve.Toolkit.Unity.pdb"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)$(var.Neovolve.Toolkit.Unity.TargetName).pdb"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Workflow.Symbols"
+                 Guid="BCC1CAFE-F559-41BB-9ABE-40C02E1404F7">
+        <File Id="Neovolve.Toolkit.Workflow.pdb"
+              Source="$(var.Neovolve.Toolkit.Workflow.TargetDir)$(var.Neovolve.Toolkit.Workflow.TargetName).pdb"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Symbols">
+      <ComponentRef Id="Neovolve.Toolkit.Symbols" />
+      <ComponentRef Id="Neovolve.Toolkit.Server.Symbols" />
+      <ComponentRef Id="Neovolve.Toolkit.Unity.Symbols" />
+      <ComponentRef Id="Neovolve.Toolkit.Workflow.Symbols" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Neovolve.Toolkit.Workflow.Design.Presentation.InstanceResolverItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+             x:Name="UserControl"
+             xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+             mc:Ignorable="d"
+             xmlns:my="clr-namespace:Neovolve.Toolkit.Workflow.Design.Presentation"
+             xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+             xmlns:conv="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation">
+	<UserControl.Resources>
+		<conv:ArgumentToExpressionConverter x:Key="expressionConverter" />
+	</UserControl.Resources>
+	<StackPanel Orientation="Horizontal"
+	            Margin="2">
+		<sapv:TypePresenter x:Name="InstanceTypeSelector"
+		                    MinWidth="120"
+		                    Margin="5"
+		                    AllowNull="false"
+		                    BrowseTypeDirectly="false"
+		                    Label="Target type"
+		                    Type="{Binding Path=InstanceType, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=my:InstanceResolverItem, AncestorLevel=1}}"
+		                    Context="{Binding Path=Context, RelativeSource={RelativeSource FindAncestor, AncestorType=sap:ActivityDesigner, AncestorLevel=1}}" />
+		<TextBox Text="{Binding Path=InstanceName, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=my:InstanceResolverItem, AncestorLevel=1}}"
+		         Width="80"
+		         Height="{Binding ElementName=InstanceTypeSelector, Path=ActualHeight}" />
+		<TextBlock VerticalAlignment="Center"
+		           Margin="2">
+			with name
+		</TextBlock>
+		<sapv:ExpressionTextBox Expression="{Binding Path=ResolutionName, Mode=TwoWay, Converter={StaticResource expressionConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=my:InstanceResolverItem, AncestorLevel=1}}"
+		                        ExpressionType="s:String"
+		                        OwnerActivity="{Binding Path=ModelItem, RelativeSource={RelativeSource FindAncestor, AncestorType=sap:ActivityDesigner, AncestorLevel=1}}"
+		                        Margin="2"
+		                        Height="{Binding ElementName=InstanceTypeSelector, Path=ActualHeight}" />
+	</StackPanel>
+
+</UserControl>

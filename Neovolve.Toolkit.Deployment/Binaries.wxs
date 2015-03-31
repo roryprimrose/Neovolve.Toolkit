@@ -1,0 +1,69 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit"
+                 Guid="7953F026-3F2C-4F2F-A15B-E019C7127723">
+        <File Id="Neovolve.Toolkit.dll"
+              Source="$(var.Neovolve.Toolkit.TargetPath)"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Server"
+                 Guid="A31ED376-3842-409C-9BE0-9E54CF4B3B7B">
+        <File Id="Neovolve.Toolkit.Server.dll"
+              Source="$(var.Neovolve.Toolkit.Server.TargetPath)"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Unity"
+                 Guid="CCBF7AEC-07C0-4459-93B6-6E5BB3D4D7AB">
+        <File Id="Neovolve.Toolkit.Unity.dll"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetPath)"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Workflow"
+                 Guid="326A71DC-F1FF-4481-8413-E6310A582211">
+        <File Id="Neovolve.Toolkit.Workflow.dll"
+              Source="$(var.Neovolve.Toolkit.Workflow.TargetPath)"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="Neovolve.Toolkit.Workflow.Design"
+                 Guid="9FC899A7-370A-4867-9457-8C109EC1F26A">
+        <File Id="Neovolve.Toolkit.Workflow.Design.dll"
+              Source="$(var.Neovolve.Toolkit.Workflow.Design.TargetPath)"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Binaries">
+      <ComponentRef Id="Neovolve.Toolkit" />
+      <ComponentRef Id="Neovolve.Toolkit.Server" />
+      <ComponentRef Id="Neovolve.Toolkit.Unity" />
+      <ComponentRef Id="Neovolve.Toolkit.Workflow" />
+      <ComponentRef Id="Neovolve.Toolkit.Workflow.Design" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

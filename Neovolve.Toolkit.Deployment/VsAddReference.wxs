@@ -1,0 +1,23 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+<?include Definitions.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="AddReferenceRegistry"
+                 Guid="52933E7E-9BBF-48EE-AE03-EE3D64993CC4">
+        <RegistryValue Root='HKLM'
+                       Key='SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\$(var.ProductName) $(var.ProductVersion)'
+                       Action='write'
+                       Type='string'
+                       Value='[INSTALLLOCATION]' />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="VsAddReference">
+      <ComponentRef Id="AddReferenceRegistry" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

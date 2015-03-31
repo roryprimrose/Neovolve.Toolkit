@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{518D9BBD-FA5A-4DFE-8B59-08B52B51A534}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neovolve.Toolkit.UnitTests</RootNamespace>
+    <AssemblyName>Neovolve.Toolkit.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Solution Items\Neovolve.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\Neovolve.Toolkit.UnitTests.XML</DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>..\Solution Items\UnitTest.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy|AnyCPU'">
+    <OutputPath>bin\Deploy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\Neovolve.Toolkit.UnitTests.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisLogFile>bin\Release\Neovolve.Toolkit.UnitTests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Solution Items\UnitTest.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=736440c9b414ea16, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft\Contracts\PublicAssemblies\v3.5\Microsoft.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Rhino.Mocks, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Rhino\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Workflow.Activities">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.ComponentModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Solution Items\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
+    <Compile Include="BusinessFailureExceptionTests.cs" />
+    <Compile Include="Communication\DefaultProxyHandlerTests.cs" />
+    <Compile Include="Communication\ErrorHandlerElementTests.cs" />
+    <Compile Include="Communication\ITestService.cs" />
+    <Compile Include="Communication\ProxyHandlerTests.cs" />
+    <Compile Include="Communication\ProxyHandlerWrapper.cs" />
+    <Compile Include="Communication\ProxyManagerTests.cs" />
+    <Compile Include="Communication\ProxyStub.cs" />
+    <Compile Include="ExtensionsTests.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Reflection\ITester.cs" />
+    <None Include="Reflection\TypeResolverTests.cs" />
+    <Compile Include="Storage\AbsoluteExpirationPolicyTest.cs" />
+    <Compile Include="Communication\Security\PasswordPrincipalTests.cs" />
+    <Compile Include="Communication\Security\PasswordSecurityTokenAuthenticatorTests.cs" />
+    <Compile Include="Communication\Security\PasswordServiceCredentialsTests.cs" />
+    <Compile Include="Instrumentation\ActivityTraceContextTests.cs" />
+    <Compile Include="Instrumentation\ConfigurationResolverMockWrapper.cs" />
+    <Compile Include="Instrumentation\TraceSourceResolverFactoryTests.cs" />
+    <Compile Include="Instrumentation\RecordTraceInitializationContextTests.cs" />
+    <Compile Include="Instrumentation\RecordTraceTests.cs" />
+    <Compile Include="Communication\Security\PasswordSecurityTokenManagerTests.cs" />
+    <Compile Include="ConfigurationStoreMockWrapper.cs" />
+    <Compile Include="Storage\CacheStoreExtensionsTests.cs" />
+    <Compile Include="Storage\ConfigurationStoreExtensionTests.cs" />
+    <Compile Include="Storage\ConfigurationTypeLoaderTests.cs" />
+    <Compile Include="Storage\ConfigurationManagerStoreTests.cs" />
+    <Compile Include="Storage\ConfigurationStoreFactoryTests.cs" />
+    <Compile Include="Instrumentation\CallingMethodResolverTests.cs" />
+    <Compile Include="Instrumentation\CacheResolverTests.cs" />
+    <Compile Include="Communication\AnotherErrorHandler.cs" />
+    <Compile Include="Communication\Security\DefaultPasswordValidator.cs" />
+    <Compile Include="Communication\Security\EvaluationContextStub.cs" />
+    <Compile Include="Communication\UnknownErrorHandler.cs" />
+    <Compile Include="Communication\ErrorHandlerAttributeTests.cs" />
+    <Compile Include="Communication\KnownErrorHandler.cs" />
+    <Compile Include="Communication\Security\OptionalPasswordValidatorTests.cs" />
+    <Compile Include="Instrumentation\ConfigurationElementCollectionStub.cs" />
+    <Compile Include="Instrumentation\ConfigurationElementStub.cs" />
+    <Compile Include="Instrumentation\ConfigurationSectionStub.cs" />
+    <Compile Include="Instrumentation\ConfigurationResolverTests.cs" />
+    <Compile Include="Communication\Security\PasswordAuthorizationPolicyTests.cs" />
+    <Compile Include="Communication\Security\PasswordIdentityTests.cs" />
+    <Compile Include="Instrumentation\MemberTraceTests.cs" />
+    <Compile Include="Instrumentation\TestTraceEvent.cs" />
+    <Compile Include="Instrumentation\TestTraceListener.cs" />
+    <Compile Include="Instrumentation\TestTraceSourceResolver.cs" />
+    <Compile Include="Reflection\MethodCacheKeyTests.cs" />
+    <Compile Include="Reflection\MethodResolverTests.cs" />
+    <Compile Include="Storage\CacheStoreFactoryTests.cs" />
+    <Compile Include="CacheStoreMockWrapper.cs" />
+    <Compile Include="Storage\ExpirationCacheStoreBaseStub.cs" />
+    <Compile Include="Storage\ExpirationCacheStoreBaseTests.cs" />
+    <Compile Include="Storage\SlidingExpirationPolicyTests.cs" />
+    <Compile Include="Storage\DictionaryCacheStoreTests.cs" />
+    <Compile Include="Storage\SlidingExpirationPolicyWrapper.cs" />
+    <Compile Include="SystemFailureExceptionTests.cs" />
+    <Compile Include="Threading\LockReaderTests.cs" />
+    <Compile Include="Threading\LockWriterTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threading\TestHelper.cs" />
+    <Compile Include="Instrumentation\ActivityTraceTests.cs" />
+    <Compile Include="Instrumentation\TraceSourceLoadExceptionTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Solution Items\Neovolve.snk">
+      <Link>Properties\Neovolve.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\Solution Items\CustomDictionary.xml">
+      <Link>Properties\CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Neovolve.Toolkit\Neovolve.Toolkit.csproj">
+      <Project>{553DFBC1-5C1F-41F7-B5A5-E621037D65AA}</Project>
+      <Name>Neovolve.Toolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,57 @@
+<?xml version="1.0"
+      encoding="UTF-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="CodeContracts">
+      <Component Id="Neovolve.Toolkit.CodeContracts"
+                 Guid="21EF790F-E940-4D6E-ABD1-2F6C6CE57948">
+        <File Id="Neovolve.Toolkit.Contracts.dll"
+              Source="$(var.Neovolve.Toolkit.TargetDir)CodeContracts\$(var.Neovolve.Toolkit.TargetName).Contracts.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="CodeContracts">
+      <Component Id="Neovolve.Toolkit.Server.CodeContracts"
+                 Guid="76EB964F-40E6-469B-97BD-7A3EB27AD0CE">
+        <File Id="Neovolve.Toolkit.Server.Contracts.dll"
+              Source="$(var.Neovolve.Toolkit.Server.TargetDir)CodeContracts\$(var.Neovolve.Toolkit.Server.TargetName).Contracts.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="CodeContracts">
+      <Component Id="Neovolve.Toolkit.Unity.CodeContracts"
+                 Guid="BE20FD22-40DD-4A24-891C-2E4CE5581112">
+        <File Id="Neovolve.Toolkit.Unity.Contracts.dll"
+              Source="$(var.Neovolve.Toolkit.Unity.TargetDir)CodeContracts\$(var.Neovolve.Toolkit.Unity.TargetName).Contracts.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="CodeContracts">
+      <Component Id="Neovolve.Toolkit.Workflow.CodeContracts"
+                 Guid="48EBECDF-211B-48E0-AC1C-37CD1F3D5B30">
+        <File Id="Neovolve.Toolkit.Workflow.Contracts.dll"
+              Source="$(var.Neovolve.Toolkit.Workflow.TargetDir)CodeContracts\$(var.Neovolve.Toolkit.Workflow.TargetName).Contracts.dll"
+              KeyPath="yes"
+              Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="CodeContracts">
+      <ComponentRef Id="Neovolve.Toolkit.CodeContracts" />
+      <ComponentRef Id="Neovolve.Toolkit.Server.CodeContracts" />
+      <ComponentRef Id="Neovolve.Toolkit.Unity.CodeContracts" />
+      <ComponentRef Id="Neovolve.Toolkit.Workflow.CodeContracts" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>
